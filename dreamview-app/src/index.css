@@ -15,6 +15,7 @@
 
 a {
 	font-weight: 500;
+	box-sizing: border-box;
 	color: #646cff;
 	text-decoration: inherit;
 }
@@ -131,4 +132,42 @@ button:focus-visible {
 	border-bottom-right-radius: 1rem;
 	text-align: center;
 
+}
+
+.sliderPage {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.carousel-container {
+	display: flex;
+	max-width: 60em;
+	margin: 1em auto;
+	position: relative;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+}
+
+.slider-btn {
+	padding: 5rem;
+	font-size: larger;
+
+}
+
+.carousel-poster {
+	width: 299px;
+	height: 501.46;
+}
+
+.carousel-slide {
+	flex: 1 0 30%;
+	scroll-snap-align: center;
+}
+
+@media (max-width: 600px) {
+	.carousel-slide {
+		flex: 1 0 90%;
+	}
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Cartelera from './components/cartelera';
 import Nav from './components/nav';
 import films from "./local-json/films.json"
+import SpotedMovies from './components/spotedMovies';
 
 const getmovies = async () => {
 	try {
@@ -29,7 +30,7 @@ const App = () => {
 	return (
 		<>
 			<Nav />
-			<article>spotmovies</article>
+			<SpotedMovies movies={movies ? movies : []} />
 			<Cartelera movies={movies} />
 			<article>shopping form</article>
 			<article>message form</article>
