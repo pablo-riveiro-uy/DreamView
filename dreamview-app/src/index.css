@@ -125,7 +125,7 @@ button:focus-visible {
 
 .carteleraBuyTicketBtn {
 	background-color: #554F95;
-	padding: 5%;
+	padding: 0.3rem 2rem;
 	color: #FFFFFF;
 	border-bottom-left-radius: 1rem;
 	border-bottom-right-radius: 1rem;
