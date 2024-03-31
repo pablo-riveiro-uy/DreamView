@@ -3,6 +3,7 @@ import Cartelera from './components/cartelera';
 import Nav from './components/nav';
 import films from "./local-json/films.json"
 import SpotedMovies from './components/spotedMovies';
+import ShoppingForm from './components/shoppingForm';
 
 const getmovies = async () => {
 	try {
@@ -32,6 +33,7 @@ const App = () => {
 			<Nav />
 			<SpotedMovies movies={movies ? movies : []} />
 			<Cartelera movies={movies} />
+			<ShoppingForm />
 			<article>shopping form</article>
 			<article>message form</article>
 			<article>succes message</article>

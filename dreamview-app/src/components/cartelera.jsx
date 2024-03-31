@@ -8,7 +8,11 @@ export default function Cartelera({ movies }) {
 
 	return (
 		<>
-			<div className='cartelera'>
+			<section className='title-header'>
+
+				<h2>En Cartelera</h2>
+			</section>
+			<section className='cartelera'>
 				{movies.map((movie, index) => (
 
 					<div key={index} className='movieCard'>
@@ -16,7 +20,7 @@ export default function Cartelera({ movies }) {
 
 					</div>
 				))}
-			</div>
+			</section>
 		</>
 	)
 }
