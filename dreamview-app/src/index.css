@@ -136,10 +136,9 @@ button:focus-visible {
 	}
 
 	.mobil-right-slider-btn {
-		position: relative;
-		top: 41.5%;
-		left: 52.8%;
+		position: relative !important;
 
+		left: 50% !important;
 		background-color: #213547;
 	}
 
@@ -166,8 +165,8 @@ button:focus-visible {
 	.mobil-slider-buttons {
 
 		position: absolute !important;
-		top: 50% !important;
-		left: 0%;
+		top: 63% !important;
+		left: 14%;
 		justify-content: space-evenly;
 
 		line-height: 0.1px;
@@ -179,6 +178,10 @@ button:focus-visible {
 		z-index: 5200;
 		color: #FFFFFF;
 
+	}
+
+	.minwidth {
+		min-width: 800px;
 	}
 
 }
@@ -407,6 +410,7 @@ button:focus-visible {
 	display: flex;
 	position: absolute;
 	top: 40%;
+	left: 20%;
 	margin-left: 20vh;
 	justify-content: space-evenly;
 
