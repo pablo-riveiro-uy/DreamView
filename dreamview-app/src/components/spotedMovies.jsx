@@ -43,12 +43,38 @@ export default function SpotedMovies({ movies }) {
 							<p className='rate-source'>Wikipedia</p>
 
 						</div>
-						<div className='movieInfo'>
+						<div className='info-and-buttons'>
 
-							<h2>{spottedMovies.length > 0 ? spottedMovies[currentIndex].Title : 'No Title'}</h2>
-							<p className='moviePlot'> {spottedMovies.length > 0 ? spottedMovies[currentIndex].Plot : 'No info'}</p>
+							<div className='movieInfo'>
+
+								<h2>{spottedMovies.length > 0 ? spottedMovies[currentIndex].Title : 'No Title'}</h2>
+								<p className='moviePlot'> {spottedMovies.length > 0 ? spottedMovies[currentIndex].Plot : 'No info'}</p>
+							</div>
+							<div className='slider-buttons'>
+								<div className='slider-btn'>
+									<div className='icons'>
+										<p className="material-symbols-outlined">
+											smart_display
+										</p>
+
+									</div>
+
+
+									<p>Ver trailer</p>
+
+								</div>
+								<div className='slider-btn'>
+									<div className='icons'>
+										<p className="material-symbols-outlined">
+											local_activity
+										</p>
+									</div>
+									<p>Comprar ticket</p>
+								</div>
+							</div>
+							<img className='carousel-poster' src={spottedMovies.length > 0 ? spottedMovies[currentIndex].Images[0] : 'No poster'} />
+
 						</div>
-						<img className='carousel-poster' src={spottedMovies.length > 0 ? spottedMovies[currentIndex].Images[0] : 'No poster'} />
 					</div>
 				</div>
 				<div className='slider-btn-right' onClick={handleNext}>{'>'}</div >
