@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+
+
 export default function SpotedMovies({ movies }) {
 	const [spottedMovies, setSpottedMovies] = useState([]);
 	const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,20 +30,29 @@ export default function SpotedMovies({ movies }) {
 
 	return (
 		<>
-			<div className='sliderPage'>
-				<div className='slider-brn' onClick={handlePrevious}>{'<'}</div>
+			<div className='sliderPage' style={{ backgroundImage: `url(${spottedMovies.length > 0 ? spottedMovies[currentIndex].Images[1] : ''})` }}>
+
+				<div className='slider-btn-left' onClick={handlePrevious}>{'<'}</div >
 				<div className='carousel-container'>
 					<div className="carousel-item">
 						<div className='rate-sqare'>
-							<p></p>
-							<spam>{spottedMovies[currentIndex].Rated}</spam>
+							<span className="material-symbols-outlined">
+								star
+							</span>
+							<p>{spottedMovies.length > 0 ? spottedMovies[currentIndex].Rated : 'No Rate'}</p>
+							<p className='rate-source'>Wikipedia</p>
+
 						</div>
-						<h2>{spottedMovies.length > 0 ? spottedMovies[currentIndex].Title : 'No Title'}</h2>
+						<div className='movieInfo'>
+
+							<h2>{spottedMovies.length > 0 ? spottedMovies[currentIndex].Title : 'No Title'}</h2>
+							<p className='moviePlot'> {spottedMovies.length > 0 ? spottedMovies[currentIndex].Plot : 'No info'}</p>
+						</div>
 						<img className='carousel-poster' src={spottedMovies.length > 0 ? spottedMovies[currentIndex].Images[0] : 'No poster'} />
 					</div>
 				</div>
-				<div onClick={handleNext}>{'>'}</div>
-			</div>
+				<div className='slider-btn-right' onClick={handleNext}>{'>'}</div >
+			</div >
 		</>
 	);
 }
