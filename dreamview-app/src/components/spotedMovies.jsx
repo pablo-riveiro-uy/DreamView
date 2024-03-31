@@ -43,27 +43,37 @@ export default function SpotedMovies({ movies }) {
 				</div>
 				<div className='carousel-container'>
 					<div className='carousel-item'>
-						<div className='rate-sqare'>
-							<span className='material-symbols-outlined'>star</span>
-							<p className='rate-text'>
-								{spottedMovies.length > 0 ? spottedMovies[currentIndex].Rated : 'No Rate'}
-							</p>
-							<p className='rate-source'>IMOB</p>
+						<div className='mobile-rate'>
+
+							<div className='rate-sqare '>
+								<span className='material-symbols-outlined'>star</span>
+								<p className='rate-text'>
+									{spottedMovies.length > 0 ? spottedMovies[currentIndex].Rated : 'No Rate'}
+								</p>
+								<p className='rate-source'>IMOB</p>
+							</div>
+						</div>
+						<div>
+
 						</div>
 						<div className='info-and-buttons'>
-							<div className='movieInfo'>
+							<div className='movieInfo ocultar-div'>
 								<h2>{spottedMovies.length > 0 ? spottedMovies[currentIndex].Title : 'No Title'}</h2>
 								<p className='moviePlot'>
 									{spottedMovies.length > 0 ? spottedMovies[currentIndex].Plot : 'No info'}
 								</p>
 							</div>
-							<div className='slider-buttons'>
+
+
+							<div className='slider-buttons mobil-slider-buttons '>
+
 								<div className='slider-btn'>
 									<div className='icons'>
 										<p className='material-symbols-outlined'>smart_display</p>
 									</div>
 									<p>Ver trailer</p>
 								</div>
+
 								<div className='slider-btn'>
 									<div className='icons'>
 										<p className='material-symbols-outlined'>local_activity</p>
@@ -71,16 +81,29 @@ export default function SpotedMovies({ movies }) {
 									<p>Comprar ticket</p>
 								</div>
 							</div>
-							<img
-								className='carousel-poster'
-								src={spottedMovies.length > 0 ? spottedMovies[currentIndex].Images[0] : 'No poster'}
-							/>
+
+							<div className='poster-and-title'>
+
+								<div className='mobil-poster'>
+									<img
+										className='carousel-poster'
+										src={spottedMovies.length > 0 ? spottedMovies[currentIndex].Images[0] : 'No poster'}
+									/>
+								</div>
+								<div className='oculta-div-on-desktop' >
+									<h2>{spottedMovies.length > 0 ? spottedMovies[currentIndex].Title : 'No Title'}</h2>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div className='slider-btn-right' onClick={handleNext}>
-					{'>'}
+				<div className='slider-btn-right mobil-right-slider-btn'>
+					<div className='slider-btn-right' onClick={handleNext}>
+						{'>'}
+					</div>
 				</div>
+
+
 			</div>
 
 

@@ -72,11 +72,120 @@ button:focus-visible {
 	}
 }
 
-@media (max-width: 600px) {
-	.carousel-slide {
-		flex: 1 0 90%;
+@media screen and (min-width:850px) {
+	.oculta-div-on-desktop {
+		display: none;
 	}
+
+	.slider-buttons {
+		display: flex;
+		position: absolute;
+		top: 40%;
+		margin-left: 20vh;
+		justify-content: space-evenly;
+
+		line-height: 0.1px;
+		height: 20%;
+
+		font-size: x-large;
+		justify-items: center;
+		flex-direction: row;
+
+		z-index: 5200;
+		width: 40%;
+		color: #FFFFFF;
+
+	}
+
 }
+
+@media screen and (max-width:850px) {
+
+	.ocultar-div {
+		display: none;
+	}
+
+	.mobil-poster {
+
+		display: flex;
+		flex-wrap: wrap;
+		position: relative;
+		margin-top: 80%;
+		justify-content: center;
+		justify-self: center;
+
+	}
+
+	.mobil-actions-btns {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		position: relative;
+		margin-top: 10%;
+		top: 20%;
+		left: 30%;
+
+
+	}
+
+	.mobile-rate {
+		position: relative;
+		top: 8%;
+		left: -5%;
+		background-color: #1C1C1C;
+	}
+
+	.mobil-right-slider-btn {
+		position: relative;
+		top: 41.5%;
+		left: 52.8%;
+
+		background-color: #213547;
+	}
+
+	.mobil-buyTicket {
+
+		position: relative;
+		top: -42%;
+		width: 15%;
+
+
+	}
+
+	.mobile-title {
+		color: #ffffff;
+		background-color: #646cff;
+	}
+
+	.poster-and-title {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.mobil-slider-buttons {
+
+		position: absolute !important;
+		top: 50% !important;
+		left: 0%;
+		justify-content: space-evenly;
+
+		line-height: 0.1px;
+
+		font-size: x-large;
+		justify-items: center;
+
+
+		z-index: 5200;
+		color: #FFFFFF;
+
+	}
+
+}
+
+
+
+
 
 /* NAV */
 
@@ -295,27 +404,36 @@ button:focus-visible {
 }
 
 .slider-buttons {
+	display: flex;
 	position: absolute;
 	top: 40%;
-	left: 30%;
+	margin-left: 20vh;
 	justify-content: space-evenly;
+
 	line-height: 0.1px;
-	display: flex;
 	height: 20%;
-	flex-wrap: wrap;
+
 	font-size: x-large;
 	justify-items: center;
 	flex-direction: row;
-	flex-wrap: wrap;
+
 	z-index: 5200;
 	width: 40%;
 	color: #FFFFFF;
 
 }
 
+.icons {
+	width: 100%;
+	margin-right: 0px;
+}
+
 .icons p {
-	font-size: 100px;
-	height: 20px;
+	font-size: 55px;
+	height: 10px;
+	width: 100%;
+	justify-self: center;
+
 
 }
 
@@ -325,6 +443,7 @@ button:focus-visible {
 	height: fit-content;
 	flex-direction: column;
 	justify-content: center;
+	justify-items: center;
 
 }
 
