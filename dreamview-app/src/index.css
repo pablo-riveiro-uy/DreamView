@@ -14,7 +14,7 @@
 a {
 	font-weight: 500;
 	box-sizing: border-box;
-	color: #646cff;
+	color: #ffffff;
 	text-decoration: inherit;
 
 }
@@ -123,59 +123,6 @@ button:focus-visible {
 }
 
 
-/* CARTELERA  */
-
-.title-header h2 {
-	background-color: #2A303C;
-	margin: 0;
-	padding: 5% 0% 5% 5%;
-	color: #FFFFFF;
-}
-
-
-
-.carteleraMoviePoster {
-	width: 180px;
-	height: 283.54px;
-	object-fit: cover;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-}
-
-.cartelera {
-	width: 100%;
-	display: flex;
-	padding: 0% 2%;
-	flex-wrap: wrap;
-	flex-direction: row;
-	background-color: #2A303C;
-
-}
-
-.movieCard {
-	display: flex;
-	flex-direction: column;
-	margin: 6px;
-}
-
-.carteleraMovieCardTitle {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 5px;
-	font-weight: lighter;
-
-	color: #FFFFFF;
-}
-
-.carteleraBuyTicketBtn {
-	background-color: #554F95;
-	padding: 0.3rem 2rem;
-	color: #FFFFFF;
-	border-bottom-left-radius: 1rem;
-	border-bottom-right-radius: 1rem;
-	text-align: center;
-
-}
 
 /* CAROUSEL  */
 
@@ -185,8 +132,8 @@ button:focus-visible {
 	flex-direction: row;
 	top: -5px;
 	width: 100%;
-	height: 550px;
-	padding: 2% 2%;
+	height: 80vh;
+	padding: 2% 0%;
 	background-color: #2A303C;
 
 }
@@ -198,11 +145,12 @@ button:focus-visible {
 	top: -5px;
 	position: absolute;
 	width: 100%;
-	height: 560px;
+	height: 80vh;
 	padding: 2% 2%;
 	background-color: #2A303C;
 	object-fit: cover;
 	position: absolute;
+	opacity: 45%;
 
 }
 
@@ -219,7 +167,7 @@ button:focus-visible {
 	min-height: 550px;
 	background-repeat: repeat-x;
 	object-fit: fill;
-	background-blend-mode: color-dodge;
+
 }
 
 
@@ -377,6 +325,60 @@ button:focus-visible {
 	height: fit-content;
 	flex-direction: column;
 	justify-content: center;
+
+}
+
+/* CARTELERA  */
+
+.title-header h2 {
+	background-color: #2A303C;
+	margin: 0;
+	padding: 5% 0% 5% 5%;
+	color: #FFFFFF;
+}
+
+
+
+.carteleraMoviePoster {
+	width: 180px;
+	height: 283.54px;
+	object-fit: cover;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.cartelera {
+	width: 100%;
+	display: flex;
+	padding: 0% 2%;
+	flex-wrap: wrap;
+	flex-direction: row;
+	background-color: #2A303C;
+
+}
+
+.movieCard {
+	display: flex;
+	flex-direction: column;
+	margin: 6px;
+}
+
+.carteleraMovieCardTitle {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 5px;
+	font-weight: lighter;
+
+	color: #FFFFFF;
+}
+
+.carteleraBuyTicketBtn {
+	background-color: #554F95;
+	padding: 0.3rem 2rem;
+	color: #FFFFFF;
+	border-bottom-left-radius: 1rem;
+	border-bottom-right-radius: 1rem;
+	text-align: center;
 
 }
 

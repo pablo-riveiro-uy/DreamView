@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function ShoppingForm({ movies }) {
+export default function ShoppingForm({ movies, selected }) {
 
 	const funciones = [
 		'30/10/2023 14:00',
@@ -33,9 +33,10 @@ export default function ShoppingForm({ movies }) {
 					</div>
 					<div className='myForms'>
 						<select className='myOptions' name="movie" id="movie" form="buyTicket">
-							{movies ? movies.map((movie, index) => (
-								<option key={index} value={movie.Title}>{movie.Title}</option>
-							)) : 'No Movies'}
+							{selected ? <option value={selected}>{selected}</option> :
+								movies ? movies.map((movie, index) => (
+									<option key={index} value={selected ? selected : movie.Title}>{movie.Title}</option>
+								)) : 'No Movies'}
 						</select>
 					</div>
 

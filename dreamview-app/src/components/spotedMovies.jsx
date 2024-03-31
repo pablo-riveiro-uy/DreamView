@@ -28,7 +28,7 @@ export default function SpotedMovies({ movies }) {
 
 	return (
 		<>
-			<div className='sliderPage'>
+			<div className='sliderPage' id='destacados'>
 
 				<div
 					className='heroImage'

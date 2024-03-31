@@ -32,8 +32,12 @@ const App = () => {
 		<>
 			<Nav />
 			<SpotedMovies movies={movies ? movies : []} />
-			<Cartelera movies={movies} />
-			<ShoppingForm movies={movies} />
+			<div id='cartelera'>
+				<Cartelera movies={movies} />
+			</div>
+			<div id='comprar'>
+				<ShoppingForm movies={movies} selected='' />
+			</div>
 			<article>shopping form</article>
 			<article>message form</article>
 			<article>succes message</article>
