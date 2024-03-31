@@ -33,7 +33,7 @@ const App = () => {
 			<Nav />
 			<SpotedMovies movies={movies ? movies : []} />
 			<Cartelera movies={movies} />
-			<ShoppingForm />
+			<ShoppingForm movies={movies} />
 			<article>shopping form</article>
 			<article>message form</article>
 			<article>succes message</article>
