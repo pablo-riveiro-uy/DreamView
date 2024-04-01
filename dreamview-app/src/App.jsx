@@ -44,9 +44,7 @@ const App = () => {
 			<div id='comprar'>
 				<ShoppingForm movies={movies} selected='' />
 			</div>
-			<article>shopping form</article>
-			<article>message form</article>
-			<article>succes message</article>
+
 		</>
 	);
 };

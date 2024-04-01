@@ -505,7 +505,7 @@ button:focus-visible {
 
 }
 
-/* BUY TICKETS 1 */
+/* BUY TICKETS  */
 
 .buyTicketHdr {
 	padding-top: 5%;
@@ -517,22 +517,35 @@ button:focus-visible {
 
 .buyTicketPage {
 	display: flex;
+	width: auto;
 	background-color: #2A303C;
 	color: #ffffff;
 	justify-items: center;
 	display: flex;
 	width: 100%;
+	z-index: 2;
+	width: 10%;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
 
 }
 
 .buyTicketForm {
 	display: flex;
+	width: 80%;
 	flex-direction: column;
 	height: auto;
 	width: 100%;
 }
 
 .buyTichetSection {
+	display: flex;
+	flex-direction: column;
+	width: 10%;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
 	margin-top: 10%;
 	margin-bottom: 10%;
 	background-color: #2A303C;
@@ -587,4 +600,58 @@ button:focus-visible {
 	border-radius: 2%;
 }
 
-/* BUY TICKETS 2  */
+/* BUY TICKETS 2 personal info form */
+
+.personal-info-form-page {
+	display: flex;
+	flex-direction: column;
+
+	background-color: #2A303C;
+	color: #ffffff;
+	justify-items: center;
+	display: flex;
+	width: 100%;
+
+}
+
+.hidden {
+	display: none !important;
+}
+
+.visible {
+	display: block;
+}
+
+.modal {
+	display: flex !important;
+	background-color: #2A303C;
+	color: #ffffff;
+	justify-items: center;
+	width: 100%;
+	width: 10%;
+}
+
+.myInputs {
+	background-color: #2A303C;
+	width: 98%;
+	color: #f9f9f9;
+	font-weight: bold;
+	font-size: xx-large;
+	border: #1a1a1a;
+
+}
+
+.finalFormBTN {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	background-color: #91C870;
+	padding: 00.2rem 6rem;
+	border: 0px;
+	border-radius: 2%;
+}
+
+.message {
+	color: #91C870;
+	font-weight: bold;
+}
