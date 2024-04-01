@@ -606,7 +606,7 @@ button:focus-visible {
 .personal-info-form-page {
 	display: flex;
 	flex-direction: column;
-
+	max-height: fit-content;
 	background-color: #2A303C;
 	color: #ffffff;
 	justify-items: center;
@@ -655,4 +655,35 @@ button:focus-visible {
 .message {
 	color: #91C870;
 	font-weight: bold;
+}
+
+.left-popcorn {
+	position: relative;
+	bottom: 300%%;
+}
+
+.right-popcorn {
+	position: relative;
+	display: flex;
+	justify-self: right;
+
+
+}
+
+.backgroundImgs {
+	display: flex;
+	position: relative;
+	height: auto;
+	top: 1500%;
+	width: 100%;
+	justify-content: space-between;
+	z-index: 100;
+}
+
+.img-zone {
+	width: 100%;
+	position: relative;
+	height: fit-content;
+	top: -50%;
+
 }

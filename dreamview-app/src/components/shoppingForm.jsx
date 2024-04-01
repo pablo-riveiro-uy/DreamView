@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Notification from './notification';
+import leftPopcorn from "../assets/popcorn-bowl.png"
 import bigTicket from "../assets/ticket.png"
-
+import popcorn from "../assets/popcorn.png"
 export default function ShoppingForm({ movies, selected }) {
 
 	// estado  para las validaciones
@@ -248,8 +249,21 @@ export default function ShoppingForm({ movies, selected }) {
 
 							</div>
 						</form>
+						<div className='img-zone'>
+
+							<div className='backgroundImgs'>
+								<div className='left-popcorn'>
+									<img src={leftPopcorn} />
+								</div>
+								<div className='right-popcorn'>
+									<img src={popcorn} />
+								</div>
+							</div>
+						</div>
 					</section>
+
 				</section>
+
 			</>
 
 		)}
