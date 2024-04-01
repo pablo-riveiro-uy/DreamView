@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Notification from './notification';
 import bigTicket from "../assets/ticket.png"
+
 export default function ShoppingForm({ movies, selected }) {
 
 	// estado  para las validaciones
@@ -31,12 +32,18 @@ export default function ShoppingForm({ movies, selected }) {
 	]
 
 
-	// estado para los datos del formulario 
+	// estado para formulario de datos personales
 
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
 		telefono: ''
+	})
+
+	const [formFuncionData, setFormFuncionData] = useState({
+		movie: '',
+		funcion: '',
+		asiento: ''
 	})
 
 	// estados para la visualizacion de notificaciones
@@ -53,15 +60,20 @@ export default function ShoppingForm({ movies, selected }) {
 	const [messageTelefono, setMessageTelefono] = useState('')
 	const [messageSistem, setMessageSistem] = useState('')
 
+	const cleanNotifications = () => {
+		setTimeout(() => {
+			setWarnSistem('hidden')
+			setWanrnNombre('hidden')
+			setwarnMail('hidden')
+			setWarnTelefono('hidden')
+		}, 5000);
+	}
+
 	// regExpression para validar el mail
 
 	let validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
-	// manejador para el boton continuar
 
-	const handleContinuar = () => {
-		setCurrentStep(2); // Cambiar al siguiente paso del formulario
-	}
 
 	// recoge el contenido de los inputs
 
@@ -85,15 +97,40 @@ export default function ShoppingForm({ movies, selected }) {
 		setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 	}
 
+	// manejador para el boton continuar y volver
 
-	const cleanNotifications = () => {
-		setTimeout(() => {
-			setWarnSistem('hidden')
-			setWanrnNombre('hidden')
-			setwarnMail('hidden')
-			setWarnTelefono('hidden')
-		}, 5000);
+	const handleContinuar = () => {
+		console.log(formFuncionData)
+		setCurrentStep(2); // Cambiar al siguiente paso del formulario
 	}
+
+	const handleVolver = () => {
+		setCurrentStep(1);  // vuelve al paso anterior
+	}
+
+
+	const handleFuncionOnchange = (event) => {
+		const { name, value } = event.target;
+
+		// Actualizar el estado formData
+		setFormFuncionData((prevFormData) => ({ ...prevFormData, [name]: value }));
+		console.log(formFuncionData)
+
+	}
+	const handleReiniciar = () => {
+		setFormFuncionData({
+			movie: '',
+			funcion: '',
+			asiento: ''
+		})
+		let formulario = document.getElementById('funcionForm');
+		formulario.reset()
+
+		console.log('reicinando formulario funcion', formFuncionData)
+
+	}
+
+	// submit de form de datos personales 
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -145,9 +182,7 @@ export default function ShoppingForm({ movies, selected }) {
 
 	}
 
-	const handleVolver = () => {
-		setCurrentStep(1);  // vuelve al paso anterior
-	}
+
 
 
 
@@ -162,15 +197,15 @@ export default function ShoppingForm({ movies, selected }) {
 						<p>Selecciona una función</p>
 					</header>
 					<section className="buyTichetSection">
-						<form id='buyTicketForm'>
+						<form id='funcionForm' >
 							<div className='formLabels'>
-								<label htmlFor="movie">Seleccione película:</label>
+								<label for="movie">Seleccione película:</label>
 							</div>
 							<div className='myForms'>
-								<select className='myOptions' name="movie" id="movie" form="buyTicket">
+								<select className='myOptions' name="movie" id="movie" form="buyTicket" onChange={handleFuncionOnchange}>
 									{selected ? <option value={selected}>{selected}</option> :
 										movies ? movies.map((movie, index) => (
-											<option key={index} value={selected ? selected : movie.Title}>{movie.Title}</option>
+											<option key={index} value={selected ? selected : movie.Title} >{movie.Title}</option>
 										)) : 'No Movies'}
 								</select>
 							</div>
@@ -181,9 +216,9 @@ export default function ShoppingForm({ movies, selected }) {
 							</div>
 
 							<div className='myForms'>
-								<select className="myOptions" name="" id="movie" form="buyTicket">
+								<select className="myOptions" name="funcion" id="funcion" form="buyTicket" onChange={handleFuncionOnchange}>
 									{funciones.map((funcion, index) => (
-										<option key={index} value={funcion}>{funcion}</option>
+										<option key={index} value={funcion} >{funcion}</option>
 									))}
 								</select>
 							</div>
@@ -194,10 +229,10 @@ export default function ShoppingForm({ movies, selected }) {
 							</div>
 
 							<div className='myForms'>
-								<select className='myOptions' name="sit" id="sit" form="buyTicket">
+								<select className='myOptions' name="asiento" id="asiento" form="buyTicket" onChange={handleFuncionOnchange}>
 									{asientos.map((asiento, index) => (
 
-										<option key={index} value={asiento}>{asiento}</option>
+										<option key={index} value={asiento} >{asiento}</option>
 									))
 
 									}
@@ -207,10 +242,9 @@ export default function ShoppingForm({ movies, selected }) {
 								<div className='emptyBtn' onClick={handleContinuar}>
 									<p>Continuar</p>
 								</div>
-								<div className='emptyBtn'>
+								<div className='emptyBtn' onClick={handleReiniciar}>
 									<p>Reiniciar</p>
 								</div>
-
 
 							</div>
 						</form>
@@ -268,13 +302,13 @@ export default function ShoppingForm({ movies, selected }) {
 
 					<section className='buyTichetSection'>
 						<h3>
-							Comprar Tickt
+							Comprar Ticket
 						</h3>
 						<h2>
-							¡ Felicitaciones {formData.name}!
+							¡ Felicitaciones {formData.name} !
 						</h2>
 						<img src={bigTicket} alt='ticket illustration' />
-						<h3>Tu funcion lalalalalalal </h3>
+						<h3>Tu funcion {formFuncionData.funcion.slice(0, -5)} a las {formFuncionData.funcion.slice(-5)} </h3>
 						<h4>Te esperamos</h4>
 					</section>
 				</section>
