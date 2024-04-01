@@ -3,7 +3,14 @@ import Notification from './notification';
 import bigTicket from "../assets/ticket.png"
 export default function ShoppingForm({ movies, selected }) {
 
-	let [validacion, setValidacion] = useState(false)
+	// estado  para las validaciones
+
+	let [validacion, setValidacion] = useState({
+		allFieldsCheck: false,
+		nameMinCheck: false,
+		validMailCheck: false,
+		telCheck: false
+	})
 	const [currentStep, setCurrentStep] = useState(1);
 
 	const funciones = [
@@ -97,35 +104,42 @@ export default function ShoppingForm({ movies, selected }) {
 		if (formData.name === '' || formData.email === '' || formData.telefono === '') {
 			setWarnSistem('vivible')
 			setMessageSistem('Debes llenar todos los datos')
-			validacion = false
+			setValidacion({ allFieldsCheck: false })
 			cleanNotifications()
 		} else {
-			setValidacion(true)
+			setValidacion({ allFieldsCheck: true })
+
 		}
 		if (formData.name.length < 4) {
+			setValidacion({ nameMinCheck: false })
 			setWanrnNombre('vivible')
 			setMessageNombre('El nombre debe tener al menos 4 caracteres')
-			validacion = false
 			cleanNotifications()
 		} else {
-			setValidacion(true)
+			setValidacion({ nameMinCheck: true })
+
 		}
 		if (!validEmail.test(formData.email)) {
 			setwarnMail('visible')
 			setMessageEmail('Ingese un mail válido')
-			validacion = false
+			setValidacion({ validMailCheck: false })
 			cleanNotifications()
 		} else {
-			setValidacion(true)
+			setValidacion({ validMailCheck: true })
 		}
 
 		if (formData.telefono.length < 9) {
 			setWarnTelefono('visible')
 			setMessageTelefono('Ingrese un teléfono válido')
-			validacion = false
+
+			setValidacion({ telCheck: false })
 			cleanNotifications()
 		} else {
-			setValidacion(true)
+			setValidacion({ telCheck: true })
+		}
+
+		if (validacion.allFieldsCheck && validacion.nameMinCheck && validacion.validMailCheck, validacion.telCheck) {
+			setCurrentStep(3);
 		}
 
 
@@ -135,12 +149,7 @@ export default function ShoppingForm({ movies, selected }) {
 		setCurrentStep(1);  // vuelve al paso anterior
 	}
 
-	useEffect(() => {
-		if (validacion) {
-			setCurrentStep(3);
 
-		}
-	}, [validacion])
 
 
 	return (
@@ -250,7 +259,6 @@ export default function ShoppingForm({ movies, selected }) {
 
 					</section>
 				</section>
-
 
 			)}
 			{currentStep === 3 && (
