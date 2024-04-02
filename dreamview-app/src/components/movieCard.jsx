@@ -1,12 +1,11 @@
 import React from 'react'
-import films from "../local-json/films.json"
+
 
 
 
 
 export default function MovieCard({ Title, PosterImg }) {
 
-	if (PosterImg) console.log('poster img url', PosterImg[0])
 
 	return (
 		<div className='movieCard'>

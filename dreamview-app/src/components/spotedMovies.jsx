@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { MyContext } from '../App';
+
 
 export default function SpotedMovies({ movies }) {
+	const { actualMovie, setActualMovie } = useContext(MyContext)
 	const [spottedMovies, setSpottedMovies] = useState([]);
 	const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -15,6 +18,17 @@ export default function SpotedMovies({ movies }) {
 			prevIndex - 1 < 0 ? spottedMovies.length - 1 : prevIndex - 1
 		);
 	};
+
+	const handleComprar = () => {
+
+		console.log(actualMovie)
+
+	}
+
+	useEffect(() => {
+		setActualMovie(spottedMovies[currentIndex])
+	}, [currentIndex])
+
 
 	useEffect(() => {
 		let moviesData = [];
@@ -75,10 +89,15 @@ export default function SpotedMovies({ movies }) {
 								</div>
 
 								<div className='slider-btn'>
-									<div className='icons'>
-										<p className='material-symbols-outlined'>local_activity</p>
-									</div>
-									<p>Comprar ticket</p>
+
+									<a href='#comprar' onClick={handleComprar}>
+										<div className='icons'>
+											<p className='material-symbols-outlined'>local_activity</p>
+										</div>
+										<p>Comprar ticket</p>
+									</a>
+
+
 								</div>
 							</div>
 

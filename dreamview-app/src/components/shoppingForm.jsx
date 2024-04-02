@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Notification from './notification';
 import leftPopcorn from "../assets/popcorn-bowl.png"
 import bigTicket from "../assets/ticket.png"
 import popcorn from "../assets/popcorn.png"
-export default function ShoppingForm({ movies, selected }) {
+import { MyContext } from '../App';
+
+export default function ShoppingForm({ movies }) {
+
+	const { actualMovie } = useContext(MyContext)
+
 
 	// estado  para las validaciones
 
@@ -204,9 +209,9 @@ export default function ShoppingForm({ movies, selected }) {
 							</div>
 							<div className='myForms'>
 								<select className='myOptions' name="movie" id="movie" form="buyTicket" onChange={handleFuncionOnchange}>
-									{selected ? <option value={selected}>{selected}</option> :
+									{actualMovie ? <option value={actualMovie.Title}>{actualMovie.Title}</option> :
 										movies ? movies.map((movie, index) => (
-											<option key={index} value={selected ? selected : movie.Title} >{movie.Title}</option>
+											<option key={index} value={actualMovie ? actualMovie.Title : movie.Title} >{movie.Title}</option>
 										)) : 'No Movies'}
 								</select>
 							</div>

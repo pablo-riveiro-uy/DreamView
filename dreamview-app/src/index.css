@@ -453,6 +453,8 @@ button:focus-visible {
 
 /* CARTELERA  */
 
+
+
 .title-header h2 {
 	background-color: #2A303C;
 	margin: 0;
@@ -659,7 +661,7 @@ button:focus-visible {
 
 .left-popcorn {
 	position: relative;
-	bottom: 300%%;
+	bottom: 300%;
 }
 
 .right-popcorn {

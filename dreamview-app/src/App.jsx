@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
 import Cartelera from './components/cartelera';
 import Nav from './components/nav';
 import films from "./local-json/films.json"
 import SpotedMovies from './components/spotedMovies';
 import ShoppingForm from './components/shoppingForm';
+
+export const MyContext = createContext();
 
 
 // This tunction simulates an api interaction to get the movies
@@ -22,9 +24,13 @@ const getmovies = async () => {
 	}
 };
 
-const App = () => {
-	const [movies, setMovies] = useState([]);
 
+
+const App = () => {
+
+	const [actualMovie, setActualMovie] = useState([])
+
+	const [movies, setMovies] = useState([]);
 	//  on the first render of the page we get the movies data from the "API" using getmovies function
 
 	useEffect(() => {
@@ -36,14 +42,17 @@ const App = () => {
 	}, []);
 	return (
 		<>
-			<Nav />
-			<SpotedMovies movies={movies ? movies : []} />
-			<div id='cartelera'>
-				<Cartelera movies={movies} />
-			</div>
-			<div id='comprar'>
-				<ShoppingForm movies={movies} selected='' />
-			</div>
+			<MyContext.Provider value={{ actualMovie, setActualMovie }}>
+
+				<Nav />
+				<SpotedMovies movies={movies ? movies : []} />
+				<div id='cartelera'>
+					<Cartelera movies={movies} />
+				</div>
+				<div id='comprar'>
+					<ShoppingForm movies={movies} />
+				</div>
+			</MyContext.Provider >
 
 		</>
 	);
