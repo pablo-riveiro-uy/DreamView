@@ -1,9 +1,9 @@
-import React from 'react'
+import { React, useContext } from 'react'
 import MovieCard from './movieCard';
 
 
-
 export default function Cartelera({ movies }) {
+
 
 
 	return (
@@ -17,6 +17,7 @@ export default function Cartelera({ movies }) {
 
 					<div key={index} className='movieCard'>
 						<MovieCard Title={movie.Title} PosterImg={movie.Images} />
+
 
 					</div>
 				))}
